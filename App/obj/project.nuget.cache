@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JLffnecEd7vJg9akV+OLeMKXkEZTSwxwE284KODsrDzQGqRGp49o7A2GknjeCDt93UK++CTagZTK/CHoIVK1bg==",
+  "dgSpecHash": "l8sdPP1SA4lQ/TnwSNB2nfhPsTjc9zDtHf7OyL7j8K+hRTqiiR9ZCz0z9jT3sL2ASJqfzNO9ux/SBA1R+sVjdw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj",
+  "projectFilePath": "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
