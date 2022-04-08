@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj": {}
+    "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj": {
+    "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj",
+        "projectUniqueName": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kevin\\Desktop\\PFR-EpicRaceEvents\\App\\obj\\",
+        "projectPath": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,23 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             }
           },
           "imports": [
