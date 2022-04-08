@@ -80,12 +80,12 @@ namespace App.Controllers
                     {
                         Name = race.RaceName,
                         EventDate = race.RaceDate,
-                        StartHour = race.StartHour,
+                        StartHour = race.RaceDate.Hour,
                         Latitude = race.Latitude,
                         Longitude = race.Longitude,
-                        MaxParticipants = race.MaxParticipants,
-                        AgeRestriction = race.AgeRestriction,
-                        Image = race.Image
+                        MaxParticipants = race.MaxParticipants ?? 15,
+                        AgeRestriction = race.AgeRestriction ?? 21,
+                        Image = race.Image ?? ""
                     };
 
                     _dbContext.Races.Add(newRace);
