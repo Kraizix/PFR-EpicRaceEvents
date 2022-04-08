@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tGUqWLcnbqXyXDWKQiIoThfirysLqQgSz0ut81699T3T83Mr6X7+dckBB+oe34RVt+Np/fLCFZzx6oNVBlKsYw==",
+  "dgSpecHash": "6hCxLqXBTa0qdHHBrLonnRTrR0vfzg9NXS4/Rq5/oW6I1Ulxl3IZdTTlEEjQ/3BFpWrgR3+88ac1e6xCkJreZg==",
   "success": true,
-  "projectFilePath": "d:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\Test\\Test.csproj",
+  "projectFilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",

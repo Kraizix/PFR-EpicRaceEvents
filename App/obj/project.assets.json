@@ -9489,11 +9489,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj",
+      "projectUniqueName": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\App.csproj",
+      "projectPath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\App.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\App\\obj\\",
+      "outputPath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

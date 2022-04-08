@@ -5978,11 +5978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\Test\\Test.csproj",
+      "projectUniqueName": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "d:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\Test\\Test.csproj",
+      "projectPath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "d:\\cours\\frameworkWebC#B2\\projetFrameWork\\MVC\\Test\\obj\\",
+      "outputPath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

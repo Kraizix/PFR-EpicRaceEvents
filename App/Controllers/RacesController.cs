@@ -79,7 +79,13 @@ namespace App.Controllers
                     Race newRace = new()
                     {
                         Name = race.RaceName,
-                        EventDate = race.RaceDate
+                        EventDate = race.RaceDate,
+                        StartHour = race.StartHour,
+                        Latitude = race.Latitude,
+                        Longitude = race.Longitude,
+                        MaxParticipants = race.MaxParticipants,
+                        AgeRestriction = race.AgeRestriction,
+                        Image = race.Image
                     };
 
                     _dbContext.Races.Add(newRace);

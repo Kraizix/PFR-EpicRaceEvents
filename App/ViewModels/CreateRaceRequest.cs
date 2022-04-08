@@ -11,5 +11,22 @@ namespace App.ViewModels
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime RaceDate { get; set; }
+
+        [Required]
+        public int StartHour { get; set; }
+
+        [Required]
+        public float Latitude { get; set; }
+
+        [Required]
+        public float Longitude { get; set; }
+
+        [Required]
+        public int MaxParticipants { get; set; }
+
+        [Required]
+        public int AgeRestriction { get; set; }
+        [Required]
+        public string Image { get; set; }
     }
 }
