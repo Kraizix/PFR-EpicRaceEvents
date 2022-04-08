@@ -8,7 +8,6 @@ namespace App.Models
         public string Model { get; set; }
         public int Power { get; set; }
         public string Image { get; set; }
-
         public ICollection<Category> Categories { get; set; }
         public ICollection<Pilot> Pilots { get; set; }
     }

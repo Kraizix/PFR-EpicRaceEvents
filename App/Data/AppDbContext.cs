@@ -17,6 +17,10 @@ namespace App.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Vehicle>()
+                .HasMany(v => v.Categories)
+                .WithMany(c => c.Vehicles)
+                .UsingEntity(join => join.ToTable("VehiclesCategories"));
         }
     }
 }
