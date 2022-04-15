@@ -78,7 +78,7 @@ namespace App.Controllers
                 {
                     Race newRace = new()
                     {
-                        Name = race.RaceName,
+                        Name = race.RaceName ?? "",
                         EventDate = race.RaceDate,
                         StartHour = race.RaceDate.Hour,
                         Latitude = race.Latitude,
