@@ -1,26 +1,24 @@
 version: "3.8"
 
 services:
-  phpmyadmin:
-    image: phpmyadmin
-    restart: always
-    ports:
-      - 8080:80
-    depends_on:
-      - db
   db:
     container_name: app-db
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
-      - ./database:/var/lib/mysql
+      - "./db:/var/lib/mysql:rw"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: dodo
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_pass
 
-volumes:
-  database:
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - app-db
