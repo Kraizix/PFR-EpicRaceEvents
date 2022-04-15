@@ -3,8 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-docker-compose.yml
-
 # User-specific files
 *.rsuser
 *.suo
@@ -458,3 +456,5 @@ $RECYCLE.BIN/
 ## database 
 database/
 db/
+
+docker-compose.yml
