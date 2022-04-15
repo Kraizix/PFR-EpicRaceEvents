@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i2ENUqTZPiE9a9gH1sIvpsOx/LiJE1Xp9mwsPqpVajBqhmcG6GFyYj0C0a/VXPSu5CO2njFDDc81GJz08CQ2kg==",
+  "dgSpecHash": "SnQsHKncwQFHspaqpyxGPvtBStGmCldSf2thM0wJfxXX33oA18WhheHds/DSXJkRTYtkjysQxBWcjsp+VvHhPg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\kevin\\Desktop\\Cours-b2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
+  "projectFilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",

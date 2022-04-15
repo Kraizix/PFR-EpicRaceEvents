@@ -1,0 +1,14 @@
+@model App.Models.Race
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Name</h1>
+
+<p>@($"Partipants : 0/{Model.MaxParticipants}")</p>
+
+<p>@Model.EventDate.ToShortDateString().</p>
+
+
+

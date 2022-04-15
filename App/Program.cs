@@ -38,7 +38,8 @@ app.UseAuthorization();
 
 app.UseBasicMiddleware();
 
-app.Use(async (context, next) => {
+app.Use(async (context, next) =>
+{
     Console.WriteLine("...MW2 ===>");
     await next();
     Console.WriteLine("<=== MW2 ...");
@@ -68,7 +69,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-using (var scope = app.Services.CreateScope()){
+using (var scope = app.Services.CreateScope())
+{
     scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.EnsureCreated();
 }
 

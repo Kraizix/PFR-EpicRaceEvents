@@ -1,8 +1,62 @@
-﻿@{
+﻿@model App.ViewModels.RaceListViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<div>
+    <h1>Next Race :</h2>
+    <p id="countdown"></p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Race Name
+            </th>
+            <th>
+                Max Participants
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RaceList) {
+                <tr>
+                    <td>
+                        <a id="btn" asp-controller="Races" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxParticipants)
+                    </td>
+                    <td>
+                        @item.EventDate.ToShortDateString()
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<script>
+    var countDownDate = new Date(@Model.RaceList.First().EventDate.ToString("yyyy,MM-1,dd,HH,mm,ss")).getTime();
+    console.log(countDownDate);
+    var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+    }
+    }, 1000);
+</script>

@@ -56,8 +56,9 @@ namespace App.Controllers
         // GET: Races/Details/5
         public ActionResult Details(int id)
         {
-
-            return View();
+            var race = _dbContext.Races.First(r => r.Id == id);
+            Console.WriteLine(race);
+            return View("RaceDetails", race);
         }
 
         // GET: Races/Create
