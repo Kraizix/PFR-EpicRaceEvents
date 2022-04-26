@@ -16323,6 +16323,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -16340,6 +16345,11 @@
     {
       "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Edit.cshtml",
+      "TargetPath": "Views\\Profile\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

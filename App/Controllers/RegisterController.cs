@@ -41,6 +41,9 @@ namespace App.Controllers
                     };
                     _dbContext.Pilots.Add(newPilot);
                     _dbContext.SaveChanges();
+                    HttpContext.Session.SetString("_name", newPilot.FirstName);
+                    HttpContext.Session.SetInt32("_id", newPilot.Id);
+                    Console.WriteLine(newPilot.Id);
                     return RedirectToAction("Index", "Home");
                 }
                 return View("Index");

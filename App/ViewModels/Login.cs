@@ -9,7 +9,7 @@ namespace App.ViewModels
         [EmailAddress]
         public string Mail { get; set; }
         [Required]
-        [MaxLength(8), MinLength(15)]
+        [MaxLength(15), MinLength(8)]
         public string Password { get; set; }
     }
 }

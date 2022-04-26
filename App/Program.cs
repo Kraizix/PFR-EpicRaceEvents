@@ -11,6 +11,8 @@ string connectionString = "server=localhost;user=root;password=root;database=app
 
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 
+builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddDbContext<AppDbContext>(
     dbContextOptions => dbContextOptions
         .UseMySql(connectionString, serverVersion)
@@ -18,6 +20,14 @@ builder.Services.AddDbContext<AppDbContext>(
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
 );
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(1000000000);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 
 var app = builder.Build();
 
@@ -35,6 +45,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.UseBasicMiddleware();
 

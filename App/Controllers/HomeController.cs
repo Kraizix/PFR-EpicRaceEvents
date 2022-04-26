@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using App.Models;
 using App.Data;
 using App.ViewModels;
@@ -19,11 +20,12 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        string user = HttpContext.Session.GetString("_name") ?? "";
         var races = _dbContext.Races.ToList();
         races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
         var raceListViewModel = new RaceListViewModel(
             races.Take(3),
-            "Liste de courses"
+            user
         );
         return View(raceListViewModel);
     }
