@@ -22,6 +22,12 @@
             <th>
                 Date
             </th>
+            <th>
+                Start Hour
+            </th>
+            <th>
+                Remaining Places
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,6 +42,12 @@
             </td>
             <td>
                 @item.EventDate.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartHour)
+            </td>
+            <td>
+                <p>@(item.MaxParticipants - (item.Pilots != null ? item.Pilots.Count : 0))</p>
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

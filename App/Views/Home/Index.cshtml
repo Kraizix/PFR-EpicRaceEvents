@@ -7,42 +7,37 @@
     <h1>Next Race :</h2>
     <p id="countdown"></p>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Race Name
-            </th>
-            <th>
-                Max Participants
-            </th>
-            <th>
-                Date
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.RaceList) {
-                <tr>
-                    <td>
-                        <a id="btn" asp-controller="Races" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MaxParticipants)
-                    </td>
-                    <td>
-                        @item.EventDate.ToShortDateString()
-                    </td>
-                </tr>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @for(var i = 0; i < Model.RaceList.Count(); i++){
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" @(i== 0 ? "class=active aria-current=true": "") aria-label="Slide @i"></button>
         }
-    </tbody>
-</table>
-
+    </div>
+    <div class="carousel-inner">
+        @foreach (var item in Model.RaceList) {
+            <div class='carousel-item @( Model.RaceList.First().Id== item.Id? "active" :""  )'>
+                <img class="d-block w-100" src="@item.Image" alt ="@item.Id" width="500" height="400">
+                <div class="carousel-caption d-none d-md-block"><h1>@item.Name</h1></div>
+                
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 <script>
+    var myCarousel = document.querySelector('#myCarousel')
+    var carousel = new bootstrap.Carousel(myCarousel)
     var countDownDate = new Date(@Model.RaceList.First().EventDate.ToString("yyyy,MM-1,dd,HH,mm,ss")).getTime();
     console.log(countDownDate);
     var x = setInterval(function() {

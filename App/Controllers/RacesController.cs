@@ -17,6 +17,7 @@ namespace App.Controllers
         public ActionResult Index()
         {
             var races = _dbContext.Races.ToList();
+            races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
             //var races = new List<Race>()
             //{
             //    new Race()
