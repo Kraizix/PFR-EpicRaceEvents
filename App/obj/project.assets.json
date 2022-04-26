@@ -38,7 +38,7 @@
           "lib/netstandard2.0/MessagePack.Annotations.dll": {}
         }
       },
-      "MessagePackAnalyzer/2.1.152": {
+      "MessagePackAnalyzer/2.3.85": {
         "type": "package"
       },
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
@@ -3098,17 +3098,17 @@
         "messagepack.annotations.nuspec"
       ]
     },
-    "MessagePackAnalyzer/2.1.152": {
-      "sha512": "uJhZlGMkXDaFYsH8V9S6o1EyvsUqB9mpU4DVBXNr0DXZVzZMhuLP1IkLj5xK3EKlaAcvkFkZv3eSvuz360wb3Q==",
+    "MessagePackAnalyzer/2.3.85": {
+      "sha512": "tsuQeEaAzUgvqCw1lU+LBlWQuHhL70SOAx9tDNfD8Ns5BIZdZyJ/nuLH1g8N3YPXsUtzX+CEbM+JpKvaaLszcw==",
       "type": "package",
-      "path": "messagepackanalyzer/2.1.152",
+      "path": "messagepackanalyzer/2.3.85",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "analyzers/dotnet/MessagePackAnalyzer.dll",
-        "messagepackanalyzer.2.1.152.nupkg.sha512",
+        "messagepackanalyzer.2.3.85.nupkg.sha512",
         "messagepackanalyzer.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
@@ -9477,6 +9477,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MessagePackAnalyzer >= 2.3.85",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.2",
@@ -9484,19 +9485,19 @@
     ]
   },
   "packageFolders": {
-    "/home/vscode/.nuget/packages/": {}
+    "C:\\Users\\kevin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/csharp-cont/PFR-EpicRaceEvents/App/App.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "/workspaces/csharp-cont/PFR-EpicRaceEvents/App/App.csproj",
-      "packagesPath": "/home/vscode/.nuget/packages/",
-      "outputPath": "/workspaces/csharp-cont/PFR-EpicRaceEvents/App/obj/",
+      "projectPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/vscode/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -9520,6 +9521,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "MessagePackAnalyzer": {
+            "target": "Package",
+            "version": "[2.3.85, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -9557,7 +9562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

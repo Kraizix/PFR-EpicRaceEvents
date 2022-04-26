@@ -6,10 +6,10 @@ namespace App.ViewModels
     public class Register
     {
         [Required]
-        [MaxLength(2), MinLength(30), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter only alphabetical letters.")]
+        [MaxLength(30), MinLength(2), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter only alphabetical letters.")]
         public string FirstName { get; set; }
         [Required]
-        [MaxLength(2), MinLength(30), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter only alphabetical letters.")]
+        [MaxLength(30), MinLength(2), RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter only alphabetical letters.")]
         public string LastName { get; set; }
         [Required]
         [AgeComp]
@@ -18,7 +18,7 @@ namespace App.ViewModels
         [EmailAddress]
         public string Mail { get; set; }
         [Required]
-        [MaxLength(8), MinLength(15)]
+        [MaxLength(15), MinLength(8)]
         public string Password { get; set; }
     }
 }

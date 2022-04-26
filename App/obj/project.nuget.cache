@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "bDmAkoXoQdOk4FAp0G+OTiWDZTPgW/48ybKPxY8ARXBRd0gM984vxP/fki0nuAQThkVZiFbQQXtaUmGetr9Jfw==",
+  "dgSpecHash": "qT46AVTsY8HGN4/S9HrRs2x2U/o/omwQvoEWZSje2SVoFsEVp9N9oyPIQyEQuwalXDOShmh4NU54lvgozBU+fg==",
   "success": true,
   "projectFilePath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
-    "C:\\Users\\kevin\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\kevin\\.nuget\\packages\\messagepackanalyzer\\2.3.85\\messagepackanalyzer.2.3.85.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.build\\17.0.0\\microsoft.build.17.0.0.nupkg.sha512",

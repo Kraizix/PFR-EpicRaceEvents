@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "App/1.0.0": {
         "dependencies": {
+          "MessagePackAnalyzer": "2.3.85",
           "Microsoft.EntityFrameworkCore.Design": "6.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.2",
@@ -50,7 +51,7 @@
           }
         }
       },
-      "MessagePackAnalyzer/2.1.152": {},
+      "MessagePackAnalyzer/2.3.85": {},
       "Microsoft.AspNetCore.Razor.Language/6.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -816,22 +817,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.1.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.1.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.1.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.1.1.0"
           }
         }
       },
@@ -1057,7 +1058,7 @@
       "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
         "dependencies": {
           "MessagePack": "2.1.152",
-          "MessagePackAnalyzer": "2.1.152",
+          "MessagePackAnalyzer": "2.3.85",
           "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
           "System.Collections.Immutable": "6.0.0"
         },
@@ -1113,12 +1114,12 @@
           "runtimes/win-arm/lib/net6.0/dotnet-aspnet-codegenerator-design.exe": {
             "rid": "win-arm",
             "assetType": "runtime",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "6.0.222.10402"
           },
           "runtimes/win-arm64/lib/net6.0/dotnet-aspnet-codegenerator-design.exe": {
             "rid": "win-arm64",
             "assetType": "runtime",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "6.0.222.10402"
           }
         }
       },
@@ -2251,12 +2252,12 @@
       "path": "messagepack.annotations/2.1.152",
       "hashPath": "messagepack.annotations.2.1.152.nupkg.sha512"
     },
-    "MessagePackAnalyzer/2.1.152": {
+    "MessagePackAnalyzer/2.3.85": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uJhZlGMkXDaFYsH8V9S6o1EyvsUqB9mpU4DVBXNr0DXZVzZMhuLP1IkLj5xK3EKlaAcvkFkZv3eSvuz360wb3Q==",
-      "path": "messagepackanalyzer/2.1.152",
-      "hashPath": "messagepackanalyzer.2.1.152.nupkg.sha512"
+      "sha512": "sha512-tsuQeEaAzUgvqCw1lU+LBlWQuHhL70SOAx9tDNfD8Ns5BIZdZyJ/nuLH1g8N3YPXsUtzX+CEbM+JpKvaaLszcw==",
+      "path": "messagepackanalyzer/2.3.85",
+      "hashPath": "messagepackanalyzer.2.3.85.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
       "type": "package",
