@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj": {}
+    "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj": {
+    "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
+        "projectPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
         "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\obj\\",
+        "outputPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config"

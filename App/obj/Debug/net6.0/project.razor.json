@@ -16298,11 +16298,6 @@
   "RootNamespace": "App",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Index.cshtml",
-      "TargetPath": "Views\\Profile\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -16320,6 +16315,11 @@
     {
       "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\RaceDetails.cshtml",
       "TargetPath": "Views\\Races\\RaceDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Register\\Index.cshtml",
+      "TargetPath": "Views\\Register\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
