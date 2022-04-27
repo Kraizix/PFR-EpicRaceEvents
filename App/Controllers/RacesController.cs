@@ -16,8 +16,7 @@ namespace App.Controllers
         // GET: Races
         public ActionResult Index()
         {
-            var races = _dbContext.Races.ToList();
-            races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
+            var races = _dbContext.Races.OrderBy(r => r.EventDate).ToList();
             //var races = new List<Race>()
             //{
             //    new Race()
@@ -99,7 +98,7 @@ namespace App.Controllers
                         Longitude = race.Longitude,
                         MaxParticipants = race.MaxParticipants ?? 15,
                         AgeRestriction = race.AgeRestriction ?? 21,
-                        Image = race.Image ?? ""
+                        Image = race.Image ?? "https://www.driving.co.uk/wp-content/uploads/sites/5/2019/02/2019-Daytona-500-NASCAR-Massive-Crash-01.jpg"
                     };
 
                     _dbContext.Races.Add(newRace);
