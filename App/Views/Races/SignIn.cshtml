@@ -1,0 +1,11 @@
+@model App.Models.Race
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<h1>@Model.Name</h1>
+
+<label  class="control-label"> Select Vehicle</label>
+
+<select name="vehicles" class="form-control" asp-items="@ViewBag.vehicleList"></select>

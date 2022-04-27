@@ -2,6 +2,7 @@ using App.Data;
 using App.Models;
 using App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Controllers
 {
@@ -47,19 +48,6 @@ namespace App.Controllers
             return View("RaceList", raceListViewModel);
         }
 
-        public ActionResult Simulate(){
-            Console.WriteLine(HttpContext.Session.GetString("_name") + " | is admin : " +HttpContext.Session.GetInt32("_admin"));
-            var races = _dbContext.Races.ToList();
-            races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
-
-            var raceListViewModel = new RaceListViewModel(
-                races,
-                "Liste de courses"
-            );
-
-            return View("RaceList", raceListViewModel);
-        }
-
         // GET: Races/
         public ActionResult List()
         {
@@ -73,6 +61,31 @@ namespace App.Controllers
             Console.WriteLine(race);
             return View("RaceDetails", race);
         }
+
+        // GET: SignIn
+        public ActionResult SignIn(int id)
+        {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var race = _dbContext.Races.First(r => r.Id == id);
+            return View("SignIn", race);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignIn(SignInRace race)
+        {
+            Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
+            List<SelectListItem> vehicleList = new List<SelectListItem>();
+            foreach (Vehicle v in pilot.Vehicles){
+                vehicleList.Add(new SelectListItem { Value = v.Id.ToString(), Text = v.Brand + v.Model });
+            }
+            ViewBag.vehicleList = vehicleList;
+            return View("RaceList");
+        }
+
 
         // GET: Races/Create
         public ActionResult Create()
