@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\cours\frameworkWebC#B2\PFR-EpicRaceEvents\App
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

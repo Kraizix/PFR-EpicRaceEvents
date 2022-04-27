@@ -21,6 +21,10 @@ namespace App.Data
                 .HasMany(v => v.Categories)
                 .WithMany(c => c.Vehicles)
                 .UsingEntity(join => join.ToTable("VehiclesCategories"));
+            modelBuilder.Entity<Race>()
+                .HasMany(r => r.AuhtorizedCategories)
+                .WithMany(c => c.Races)
+                .UsingEntity(join => join.ToTable("RacesCategories"));
         }
     }
 }

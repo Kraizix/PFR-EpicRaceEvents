@@ -47,7 +47,7 @@ namespace App.Controllers
 
             return View("RaceList", raceListViewModel);
         }
-
+        
         // GET: Races/
         public ActionResult List()
         {
@@ -65,11 +65,26 @@ namespace App.Controllers
         // GET: SignIn
         public ActionResult SignIn(int id)
         {
+            var race = _dbContext.Races.First(r => r.Id == id);
             if (HttpContext.Session.GetString("_id") == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Login");
             }
-            var race = _dbContext.Races.First(r => r.Id == id);
+            else{
+                Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
+                if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days/365)){
+                    return RedirectToAction("Index");
+                }
+
+                int pilotsCount = 0;
+                try{
+                    pilotsCount = race.Pilots.Count();
+                }catch{}
+
+                if (race.MaxParticipants == pilotsCount){
+                    return RedirectToAction("Index");
+                }
+            }
             return View("SignIn", race);
         }
 

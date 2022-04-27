@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using App.ViewModels;
 using App.Models;
 using App.Data;
+using BCrypt.Net;
 
 namespace App.Controllers
 {
@@ -31,20 +32,26 @@ namespace App.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Mail == user.Mail && p.Password == user.Password);
+                    Console.WriteLine("salut");
+                    Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Mail == user.Mail);
                     if (pilot == null)
                     {
                         return View("Index");
                     }
-                    HttpContext.Session.SetString("_name", pilot.FirstName);
-                    HttpContext.Session.SetInt32("_id", pilot.Id);
-                    HttpContext.Session.SetInt32("_admin", pilot.Admin);
-                    return RedirectToAction("Index", "Home");
+                    if (BCrypt.Net.BCrypt.Verify(user.Password, pilot.Password))
+                    {
+                        Console.WriteLine("Yo");
+                        HttpContext.Session.SetString("_name", pilot.FirstName);
+                        HttpContext.Session.SetInt32("_id", pilot.Id);
+                        HttpContext.Session.SetInt32("_admin", pilot.Admin);
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 return View("Index");
             }
             catch
             {
+                Console.WriteLine("Bonjour");
                 return View("Index");
             }
         }
