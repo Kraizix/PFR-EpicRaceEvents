@@ -90,17 +90,25 @@ namespace App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn(SignInRace race)
+        public ActionResult SignIn(Race race)
         {
             Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
             List<SelectListItem> vehicleList = new List<SelectListItem>();
-            foreach (Vehicle v in pilot.Vehicles){
-                vehicleList.Add(new SelectListItem { Value = v.Id.ToString(), Text = v.Brand + v.Model });
-            }
+            Console.WriteLine(pilot.Vehicles + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //var raceCategories = _dbContext.RacesCategories.AuhtorizedCategoriesId.Where(r => r.RacesId == race.Id).ToList();
+            //foreach (Vehicle vehicle in pilot.Vehicles){
+            //    var vehicleCategories = _dbContext.VehiclesCategories.Categoriesid.Where(v => v.VehiclesId == vehicle.Id).ToList();
+            //    foreach(int rc in raceCategories){
+            //        if (vehicleCategories.Contains(rc)){
+            //            vehicleList.Add(new SelectListItem(vehicle.Id.ToString(), vehicle.Brand + vehicle.Model, false, false));
+            //            break;
+            //        }
+            //    }
+            //    vehicleList.Add(new SelectListItem (vehicle.Id.ToString(), vehicle.Brand + vehicle.Model, false, true ));
+            //}
             ViewBag.vehicleList = vehicleList;
             return View("RaceList");
         }
-
 
         // GET: Races/Create
         public ActionResult Create()
