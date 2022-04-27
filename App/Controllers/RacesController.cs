@@ -47,6 +47,19 @@ namespace App.Controllers
             return View("RaceList", raceListViewModel);
         }
 
+        public ActionResult Simulate(){
+            Console.WriteLine(HttpContext.Session.GetString("_name") + " | is admin : " +HttpContext.Session.GetInt32("_admin"));
+            var races = _dbContext.Races.ToList();
+            races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
+
+            var raceListViewModel = new RaceListViewModel(
+                races,
+                "Liste de courses"
+            );
+
+            return View("RaceList", raceListViewModel);
+        }
+
         // GET: Races/
         public ActionResult List()
         {

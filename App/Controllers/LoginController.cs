@@ -38,6 +38,7 @@ namespace App.Controllers
                     }
                     HttpContext.Session.SetString("_name", pilot.FirstName);
                     HttpContext.Session.SetInt32("_id", pilot.Id);
+                    HttpContext.Session.SetInt32("_admin", pilot.Admin);
                     return RedirectToAction("Index", "Home");
                 }
                 return View("Index");
