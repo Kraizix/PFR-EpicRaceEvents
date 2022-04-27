@@ -70,26 +70,6 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-<<<<<<< HEAD
-            else
-            {
-                Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
-                if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days / 365))
-                {
-                    return RedirectToAction("Index");
-                }
-
-                int pilotsCount = 0;
-                try
-                {
-                    pilotsCount = race.Pilots.Count();
-                }
-                catch { }
-
-                if (race.MaxParticipants == pilotsCount)
-                {
-                    return RedirectToAction("Index");
-=======
             var race = _dbContext.Races.Include(x => x.AuhtorizedCategories).First(r => r.Id == id);
             Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).ThenInclude(x => x.Categories).First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
             if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days/365)){
@@ -115,7 +95,6 @@ namespace App.Controllers
                             goto NextVehicle;
                         }
                     }
->>>>>>> 3e64d7b... SignIn Race
                 }
                 vehicleList.Add(new SelectListItem (vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, true ));
                 NextVehicle:
