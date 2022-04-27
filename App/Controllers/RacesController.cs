@@ -47,7 +47,7 @@ namespace App.Controllers
 
             return View("RaceList", raceListViewModel);
         }
-        
+
         // GET: Races/
         public ActionResult List()
         {
@@ -68,20 +68,25 @@ namespace App.Controllers
             var race = _dbContext.Races.First(r => r.Id == id);
             if (HttpContext.Session.GetString("_id") == null)
             {
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index", "Login");
             }
-            else{
+            else
+            {
                 Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
-                if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days/365)){
+                if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days / 365))
+                {
                     return RedirectToAction("Index");
                 }
 
                 int pilotsCount = 0;
-                try{
+                try
+                {
                     pilotsCount = race.Pilots.Count();
-                }catch{}
+                }
+                catch { }
 
-                if (race.MaxParticipants == pilotsCount){
+                if (race.MaxParticipants == pilotsCount)
+                {
                     return RedirectToAction("Index");
                 }
             }
@@ -113,16 +118,31 @@ namespace App.Controllers
         // GET: Races/Create
         public ActionResult Create()
         {
+            ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
             return View("CreateRace");
         }
 
         // POST: Races/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateRaceRequest race)
+        public ActionResult Create(CreateRaceRequest race, List<uint> Cats)
         {
+            race.Categories = new List<Category>(Cats.Count);
+            foreach (int id in Cats)
+            {
+                race.Categories.Add(_dbContext.Categories.FirstOrDefault(c => c.Id == id));
+            }
+            ModelState.Clear();
+            TryValidateModel(race);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Console.WriteLine("#####################################################################################");
+                Console.WriteLine(error);
+            }
             try
             {
+                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if (ModelState.IsValid)
                 {
                     Race newRace = new()
@@ -134,20 +154,22 @@ namespace App.Controllers
                         Longitude = race.Longitude,
                         MaxParticipants = race.MaxParticipants ?? 15,
                         AgeRestriction = race.AgeRestriction ?? 21,
-                        Image = race.Image ?? "https://www.driving.co.uk/wp-content/uploads/sites/5/2019/02/2019-Daytona-500-NASCAR-Massive-Crash-01.jpg"
+                        Image = race.Image ?? "https://www.driving.co.uk/wp-content/uploads/sites/5/2019/02/2019-Daytona-500-NASCAR-Massive-Crash-01.jpg",
+                        AuhtorizedCategories = race.Categories,
                     };
-
                     _dbContext.Races.Add(newRace);
                     _dbContext.SaveChanges();
 
                     return RedirectToAction(nameof(Index));
                 }
-
-                return View("CreateRace");
+                Console.WriteLine("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+                return RedirectToAction("CreateRace");
             }
-            catch
+            catch (Exception e)
             {
-                return View("CreateRace");
+                Console.WriteLine(e);
+                Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+                return RedirectToAction("CreateRace");
             }
         }
 

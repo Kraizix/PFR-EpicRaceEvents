@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using App.Models;
 using App.ViewModels.CustomDataAnnotation;
 
 namespace App.ViewModels
@@ -26,5 +27,7 @@ namespace App.ViewModels
         [Range(18, 120)]
         public int? AgeRestriction { get; set; }
         public string? Image { get; set; }
+
+        public List<Category> Categories { get; set; }
     }
 }
