@@ -21,8 +21,15 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         string user = HttpContext.Session.GetString("_name") ?? "";
-        var races = _dbContext.Races.ToList();
-        races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
+        // Get future Races from and ordered by date
+
+
+
+
+
+        // var races = _dbContext.Races.ToList();
+        // races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
+        var races = _dbContext.Races.OrderBy(x => x.EventDate).Where(y => y.EventDate > DateTime.Now).ToList();
         var raceListViewModel = new RaceListViewModel(
             races.Take(3),
             user

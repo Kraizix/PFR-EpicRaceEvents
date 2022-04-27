@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Data;
+using App.Models;
+using App.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,58 +12,64 @@ namespace App.Controllers
 {
     public class ProfileController : Controller
     {
+        private readonly AppDbContext _dbContext;
+        public ProfileController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         // GET: Profile
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Profile/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Profile/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Profile/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            if (HttpContext.Session.GetString("_id") == null)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Login");
             }
-            catch
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            ViewProfile model = new()
             {
-                return View();
-            }
+                FirstName = pilot.FirstName,
+                LastName = pilot.LastName,
+                BirthDate = pilot.BirthDate,
+                Mail = pilot.Mail,
+            };
+            return View("Index", model);
         }
-
-        // GET: Profile/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Profile/Edit
+        public ActionResult Edit()
         {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View("Edit");
         }
 
-        // POST: Profile/Edit/5
+        // POST: Profile/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(EditProfile profile)
         {
             try
             {
                 // TODO: Add update logic here
                 if (ModelState.IsValid)
                 {
-                    return RedirectToAction("Index", "Home");
+                    if (HttpContext.Session.GetString("_id") == null)
+                    {
+                        return RedirectToAction("Index", "Login");
+                    }
+                    Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+                    if (!string.IsNullOrEmpty(profile.FirstName))
+                    {
+                        pilot.FirstName = profile.FirstName;
+                    }
+                    if (!string.IsNullOrEmpty(profile.LastName))
+                    {
+                        pilot.LastName = profile.LastName;
+                    }
+                    _dbContext.Pilots.Update(pilot);
+                    _dbContext.SaveChanges();
+                    return RedirectToAction("Index");
                 }
                 return View("Edit");
             }
