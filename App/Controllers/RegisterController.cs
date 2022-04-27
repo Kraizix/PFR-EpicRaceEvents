@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using App.ViewModels;
 using App.Models;
 using App.Data;
+using BCrypt.Net;
 
 namespace App.Controllers
 {
@@ -31,6 +32,7 @@ namespace App.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
                     Pilot newPilot = new()
                     {
                         FirstName = user.FirstName,
