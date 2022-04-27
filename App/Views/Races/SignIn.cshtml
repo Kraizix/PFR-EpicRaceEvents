@@ -6,6 +6,39 @@
 
 <h1>@Model.Name</h1>
 
-<label  class="control-label"> Select Vehicle</label>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Catégories
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+@foreach (var item in Model.AuhtorizedCategories) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
 
-<select name="vehicles" class="form-control" asp-items="@ViewBag.vehicleList"></select>
+<div class="form-control">
+    <form asp-action="SignInRace">
+        <select name="vehicles"  asp-items="@ViewBag.vehicleList">
+            <option>Choisissez votre véhicule.</option>
+        </select>
+        <div class="form-group">
+            <input type="submit" value="SignIn" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+

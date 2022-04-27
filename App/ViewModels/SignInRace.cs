@@ -1,3 +1,7 @@
+using App.Models;
+using System.ComponentModel.DataAnnotations;
+using App.ViewModels.CustomDataAnnotation;
+
 namespace App.ViewModels
 {
     public class SignInRace

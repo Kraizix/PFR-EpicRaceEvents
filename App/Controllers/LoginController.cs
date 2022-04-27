@@ -40,7 +40,6 @@ namespace App.Controllers
                     }
                     if (BCrypt.Net.BCrypt.Verify(user.Password, pilot.Password))
                     {
-                        Console.WriteLine("Yo");
                         HttpContext.Session.SetString("_name", pilot.FirstName);
                         HttpContext.Session.SetInt32("_id", pilot.Id);
                         HttpContext.Session.SetInt32("_admin", pilot.Admin);

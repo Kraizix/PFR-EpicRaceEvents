@@ -1,6 +1,7 @@
 using App.Data;
 using App.Models;
 using App.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -65,11 +66,11 @@ namespace App.Controllers
         // GET: SignIn
         public ActionResult SignIn(int id)
         {
-            var race = _dbContext.Races.First(r => r.Id == id);
             if (HttpContext.Session.GetString("_id") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
+<<<<<<< HEAD
             else
             {
                 Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
@@ -88,31 +89,51 @@ namespace App.Controllers
                 if (race.MaxParticipants == pilotsCount)
                 {
                     return RedirectToAction("Index");
-                }
+=======
+            var race = _dbContext.Races.Include(x => x.AuhtorizedCategories).First(r => r.Id == id);
+            Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).ThenInclude(x => x.Categories).First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
+            if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days/365)){
+                return RedirectToAction("Index");
             }
+            if (race.EventDate < DateTime.Now){
+                return RedirectToAction("Index");
+            }
+            int pilotsCount = 0;
+            try{
+                pilotsCount = race.Pilots.Count();
+            }catch{}
+            if (race.MaxParticipants == pilotsCount){
+                return RedirectToAction("Index");
+            }
+            List<SelectListItem> vehicleList = new List<SelectListItem>();
+            foreach (Vehicle vehicle in pilot.Vehicles){
+                //int vehicleCategories = _dbContext.Vehicles.Include(x => x.Categories).First(vi => vi.Id == vehicle.Id);
+                foreach(var rc in race.AuhtorizedCategories){
+                    foreach(var vc in vehicle.Categories){
+                        if (vc == rc){
+                            vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, false));
+                            goto NextVehicle;
+                        }
+                    }
+>>>>>>> 3e64d7b... SignIn Race
+                }
+                vehicleList.Add(new SelectListItem (vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, true ));
+                NextVehicle:
+                continue;
+            }
+            ViewBag.vehicleList = vehicleList;
+
             return View("SignIn", race);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn(Race race)
+        public ActionResult SignInRace(List<SelectListItem> vehicleList)
         {
-            Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
-            List<SelectListItem> vehicleList = new List<SelectListItem>();
-            Console.WriteLine(pilot.Vehicles + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //var raceCategories = _dbContext.RacesCategories.AuhtorizedCategoriesId.Where(r => r.RacesId == race.Id).ToList();
-            //foreach (Vehicle vehicle in pilot.Vehicles){
-            //    var vehicleCategories = _dbContext.VehiclesCategories.Categoriesid.Where(v => v.VehiclesId == vehicle.Id).ToList();
-            //    foreach(int rc in raceCategories){
-            //        if (vehicleCategories.Contains(rc)){
-            //            vehicleList.Add(new SelectListItem(vehicle.Id.ToString(), vehicle.Brand + vehicle.Model, false, false));
-            //            break;
-            //        }
-            //    }
-            //    vehicleList.Add(new SelectListItem (vehicle.Id.ToString(), vehicle.Brand + vehicle.Model, false, true ));
-            //}
-            ViewBag.vehicleList = vehicleList;
-            return View("RaceList");
+            foreach(SelectListItem v in vehicleList){
+                Console.WriteLine(v + " !");
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Races/Create
