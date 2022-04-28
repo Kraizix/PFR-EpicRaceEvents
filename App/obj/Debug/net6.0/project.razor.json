@@ -16296,9 +16296,6 @@
     "CSharpLanguageVersion": 1000
   },
   "RootNamespace": "App",
-<<<<<<< HEAD
-  "Documents": [],
-=======
   "Documents": [
     {
       "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\Edit.cshtml",
@@ -16328,6 +16325,16 @@
     {
       "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Register\\ShowVehicle.cshtml",
+      "TargetPath": "Views\\Register\\ShowVehicle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\Edit.cshtml",
+      "TargetPath": "Views\\Races\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16391,6 +16398,5 @@
       "FileKind": "mvc"
     }
   ],
->>>>>>> origin/Dorian
   "SerializationFormat": "0.2"
 }

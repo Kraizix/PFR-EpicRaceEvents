@@ -62,28 +62,6 @@ namespace App.Controllers
                 return RedirectToAction("Index");
             }
             int pilotsCount = 0;
-<<<<<<< HEAD
-            try
-            {
-                pilotsCount = race.Pilots.Count();
-            }
-            catch { }
-            if (race.MaxParticipants == pilotsCount)
-            {
-                Console.WriteLine("SALUTTTTTTTTTTTTTT");
-                return RedirectToAction("Index");
-            }
-            List<SelectListItem> vehicleList = new List<SelectListItem>();
-            foreach (Vehicle vehicle in pilot.Vehicles)
-            {
-                //int vehicleCategories = _dbContext.Vehicles.Include(x => x.Categories).First(vi => vi.Id == vehicle.Id);
-                foreach (var rc in race.AuhtorizedCategories)
-                {
-                    foreach (var vc in vehicle.Categories)
-                    {
-                        if (vc == rc)
-                        {
-=======
             try{
                 pilotsCount = race.Pilots.Count;
             }catch{}
@@ -100,19 +78,13 @@ namespace App.Controllers
                 foreach(var rc in race.AuhtorizedCategories){
                     foreach(var vc in vehicle.Categories){
                         if (vc == rc){
->>>>>>> origin/Dorian
                             vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, false));
                             goto NextVehicle;
                         }
                     }
                 }
-<<<<<<< HEAD
-                vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, true));
-            NextVehicle:
-=======
                 vehicleList.Add(new SelectListItem (vehicle.Brand +" "+ vehicle.Model, vehicle.Id.ToString(), false, true ));
                 NextVehicle:
->>>>>>> origin/Dorian
                 continue;
             }
             SignIn SignInModel = new()
@@ -127,8 +99,6 @@ namespace App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignInRace(Race race, int vehicleList)
         {
-<<<<<<< HEAD
-=======
             Console.WriteLine(vehicleList);
             Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
             Console.WriteLine("test1 : " + race.Pilots.Count());
@@ -142,7 +112,6 @@ namespace App.Controllers
             race.Pilots.Add(pilot);
             _dbContext.Races.Update(race);
             _dbContext.SaveChanges();
->>>>>>> origin/Dorian
             return RedirectToAction("Index");
         }
 
@@ -196,26 +165,14 @@ namespace App.Controllers
 
                     return RedirectToAction(nameof(Index));
                 }
-<<<<<<< HEAD
-                Console.WriteLine("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-                return View("CreateRace");
-=======
                 ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
                 return RedirectToAction("CreateRace");
->>>>>>> origin/Dorian
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-<<<<<<< HEAD
-                Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-                return View("CreateRace");
-=======
                 ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
                 return RedirectToAction("CreateRace");
->>>>>>> origin/Dorian
             }
         }
 
@@ -249,7 +206,7 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            Race race = _dbContext.races.FirstOrDefault(r => r.Id == id);
+            Race race = _dbContext.Races.FirstOrDefault(r => r.Id == id);
             try
             {
                 // TODO: Add update logic here
