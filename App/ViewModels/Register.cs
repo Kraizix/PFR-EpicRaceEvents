@@ -18,7 +18,7 @@ namespace App.ViewModels
         [EmailAddress]
         public string Mail { get; set; }
         [Required]
-        [MaxLength(15), MinLength(8)]
+        [MaxLength(15), MinLength(8), RegularExpression(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$", ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter and one number")]
         public string Password { get; set; }
     }
 }

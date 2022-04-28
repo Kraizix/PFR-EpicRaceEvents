@@ -35,7 +35,36 @@
                 @Html.DisplayFor(modelItem => pilot.FirstName)
             </td>
         </tr>
-}
+        }
+        @if(Model.Result != null){
+
+        
+        <tr>
+            <th>
+                Résultats :
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Rang
+            </th>
+        </tr>
+        
+        @foreach (var result in Model.Result.ResultItems) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => result.DriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => result.Rank)
+            </td>
+        </tr>
+        }
+        }
+
     </tbody>
 </table>
 <div id="map">

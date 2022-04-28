@@ -16298,113 +16298,113 @@
   "RootNamespace": "App",
   "Documents": [
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\Edit.cshtml",
-      "TargetPath": "Views\\Drivers\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\SignIn.cshtml",
-      "TargetPath": "Views\\Races\\SignIn.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Edit.cshtml",
-      "TargetPath": "Views\\Profile\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Index.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Index.cshtml",
       "TargetPath": "Views\\Profile\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\Index.cshtml",
+      "TargetPath": "Views\\Drivers\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\AddVehicle.cshtml",
-      "TargetPath": "Views\\Drivers\\AddVehicle.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Register\\ShowVehicle.cshtml",
-      "TargetPath": "Views\\Register\\ShowVehicle.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\Edit.cshtml",
-      "TargetPath": "Views\\Races\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\DelVehicle.cshtml",
-      "TargetPath": "Views\\Drivers\\DelVehicle.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Register\\Index.cshtml",
-      "TargetPath": "Views\\Register\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\RaceList.cshtml",
-      "TargetPath": "Views\\Races\\RaceList.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\RaceDetails.cshtml",
-      "TargetPath": "Views\\Races\\RaceDetails.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Login\\Index.cshtml",
-      "TargetPath": "Views\\Login\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_MyLayout.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_MyLayout.cshtml",
       "TargetPath": "Views\\Shared\\_MyLayout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Races\\CreateRace.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\RaceDetails.cshtml",
+      "TargetPath": "Views\\Races\\RaceDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Register\\ShowVehicle.cshtml",
+      "TargetPath": "Views\\Register\\ShowVehicle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\SignIn.cshtml",
+      "TargetPath": "Views\\Races\\SignIn.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Register\\Index.cshtml",
+      "TargetPath": "Views\\Register\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\Edit.cshtml",
+      "TargetPath": "Views\\Drivers\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\CreateRace.cshtml",
       "TargetPath": "Views\\Races\\CreateRace.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\Index.cshtml",
-      "TargetPath": "Views\\Drivers\\Index.cshtml",
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\DelVehicle.cshtml",
+      "TargetPath": "Views\\Drivers\\DelVehicle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\Edit.cshtml",
+      "TargetPath": "Views\\Races\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Profile\\Edit.cshtml",
+      "TargetPath": "Views\\Profile\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Races\\RaceList.cshtml",
+      "TargetPath": "Views\\Races\\RaceList.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\AddVehicle.cshtml",
+      "TargetPath": "Views\\Drivers\\AddVehicle.cshtml",
       "FileKind": "mvc"
     }
   ],

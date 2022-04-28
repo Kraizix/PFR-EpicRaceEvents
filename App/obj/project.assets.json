@@ -9526,26 +9526,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\kevin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\App.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\App.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\obj\\",
+      "projectPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

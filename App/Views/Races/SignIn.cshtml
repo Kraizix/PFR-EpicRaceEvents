@@ -35,7 +35,8 @@
     <form asp-action="SignInRace">
         @using (Html.BeginForm())
     {   
-        <select name="vehicleList"  asp-items="@(new SelectList(Model.VehicleList,"Value", "Text"))">
+        <select name="vehicleList"  asp-items="@Model.VehicleList">
+            <option>Choisissez votre véhicule.</option>
         </select>
         <div class="form-group">
             @Html.HiddenFor(r => r.Race.Pilots, new { Value = Model.Race.Pilots})

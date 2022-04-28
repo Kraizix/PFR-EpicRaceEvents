@@ -7,7 +7,9 @@
 <h1>@Model.HeaderTitle</h1>
 
 <p>
-    <a asp-action="Create">Create a Race</a>
+    @if(Context.Session.GetInt32("_admin") == 1){
+        <a asp-action="Create">Create a Race</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -49,9 +51,13 @@
                 <p>@(item.MaxParticipants - (item.Pilots != null ? item.Pilots.Count : 0))</p>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
+                @Html.ActionLink("SignIn", "SignIn", new { id=item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("SignIn", "SignIn", new { id=item.Id })
+                
+                
+                @if(Context.Session.GetInt32("_admin") == 1){
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id})  
+                }
             </td>
         </tr>
 }
