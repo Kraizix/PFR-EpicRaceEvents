@@ -6,7 +6,38 @@
 
 <h1>@Model.Name</h1>
 
-<p>@($"Partipants : 0/{Model.MaxParticipants}")</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Inscription
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => (Model.Pilots.Count)) / @Html.DisplayFor(modelItem => (Model.MaxParticipants))
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Prénom
+            </th>
+        </tr>
+        @foreach (var pilot in Model.Pilots) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => pilot.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => pilot.FirstName)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
 
 <p>@Model.EventDate.ToShortDateString().</p>
 

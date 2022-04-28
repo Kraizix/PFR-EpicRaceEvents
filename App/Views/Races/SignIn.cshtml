@@ -1,23 +1,22 @@
-@model App.Models.Race
+@model App.ViewModels.SignIn
 
 @{
     ViewData["Title"] = "SignIn";
 }
 
-<h1>@Model.Name</h1>
+<h1>@Model.Race.Name</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                Catégories
+                Catégories de Véhicules 
             </th>
             <th>
                 Description
             </th>
-            <th></th>
         </tr>
-@foreach (var item in Model.AuhtorizedCategories) {
+@foreach (var item in Model.Race.AuhtorizedCategories) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -27,18 +26,33 @@
             </td>
         </tr>
 }
+        </tr>
     </tbody>
 </table>
 
 <div class="form-control">
+    
     <form asp-action="SignInRace">
-        <select name="vehicles"  asp-items="@ViewBag.vehicleList">
+        @using (Html.BeginForm())
+    {   
+        <select name="vehicleList"  asp-items="@Model.VehicleList">
             <option>Choisissez votre véhicule.</option>
         </select>
         <div class="form-group">
+            @Html.HiddenFor(r => r.Race.Pilots, new { Value = Model.Race.Pilots})
+            @Html.HiddenFor(r => r.Race.Id, new { Value = Model.Race.Id})
+            @Html.HiddenFor(r => r.Race.AgeRestriction, new { Value = Model.Race.AgeRestriction})
+            @Html.HiddenFor(r => r.Race.AuhtorizedCategories, new { Value = Model.Race.AuhtorizedCategories})
+            @Html.HiddenFor(r => r.Race.EventDate, new { Value = Model.Race.EventDate})
+            @Html.HiddenFor(r => r.Race.Image, new { Value = Model.Race.Image})
+            @Html.HiddenFor(r => r.Race.Longitude, new { Value = Model.Race.Longitude})
+            @Html.HiddenFor(r => r.Race.Latitude, new { Value = Model.Race.Latitude})
+            @Html.HiddenFor(r => r.Race.MaxParticipants, new { Value = Model.Race.MaxParticipants})
+            @Html.HiddenFor(r => r.Race.Name, new { Value = Model.Race.Name})
+            @Html.HiddenFor(r => r.Race.StartHour, new { Value = Model.Race.StartHour})
+            @Html.HiddenFor(r => r.Race.Result, new { Value = Model.Race.Result})
             <input type="submit" value="SignIn" class="btn btn-primary" />
         </div>
+        }
     </form>
 </div>
-
-
