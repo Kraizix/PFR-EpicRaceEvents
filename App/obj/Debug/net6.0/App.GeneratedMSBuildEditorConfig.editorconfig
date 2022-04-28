@@ -8,97 +8,97 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = App
 build_property.RootNamespace = App
-build_property.ProjectDir = c:\Users\kevin\Documents\Cours-b2\PFR-EpicRaceEvents\App\
+build_property.ProjectDir = D:\cours\frameworkWebC#B2\PFR-EpicRaceEvents\App\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\kevin\Documents\Cours-b2\PFR-EpicRaceEvents\App
+build_property.MSBuildProjectDirectory = D:\cours\frameworkWebC#B2\PFR-EpicRaceEvents\App
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Drivers/AddVehicle.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/AddVehicle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xBZGRWZWhpY2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Drivers/DelVehicle.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/DelVehicle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xEZWxWZWhpY2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Drivers/Edit.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Drivers/Index.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Drivers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpdmVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Home/Index.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Home/Privacy.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Login/Index.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Profile/Edit.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Profile/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Profile/Index.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Races/Edit.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Races/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Races/RaceDetails.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Races/RaceDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjZXNcUmFjZURldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Races/RaceList.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Races/RaceList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjZXNcUmFjZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Races/SignIn.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Races/SignIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjZXNcU2lnbkluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Register/Index.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Register/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Register/ShowVehicle.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Register/ShowVehicle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcU2hvd1ZlaGljbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Shared/Error.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/_ViewImports.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/_ViewStart.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Races/CreateRace.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Races/CreateRace.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjZXNcQ3JlYXRlUmFjZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-37weqruaqc
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Shared/_Layout.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-78367sr58w
 
-[c:/Users/kevin/Documents/Cours-b2/PFR-EpicRaceEvents/App/Views/Shared/_MyLayout.cshtml]
+[D:/cours/frameworkWebC\#B2/PFR-EpicRaceEvents/App/Views/Shared/_MyLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NeUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-h2daim7ygw
