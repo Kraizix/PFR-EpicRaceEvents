@@ -62,16 +62,6 @@ namespace App.Controllers
                 return RedirectToAction("Index");
             }
             int pilotsCount = 0;
-<<<<<<< HEAD
-            try{
-                pilotsCount = race.Pilots.Count;
-            }catch{}
-            if (race.MaxParticipants == pilotsCount){
-                return RedirectToAction("Index");
-            }
-            foreach(Pilot p in race.Pilots){
-                if(p.Id == pilot.Id){
-=======
             try
             {
                 pilotsCount = race.Pilots.Count;
@@ -85,17 +75,10 @@ namespace App.Controllers
             {
                 if (p.Id == pilot.Id)
                 {
->>>>>>> origin
                     return RedirectToAction("Index");
                 }
             }
             List<SelectListItem> vehicleList = new();
-<<<<<<< HEAD
-            foreach (Vehicle vehicle in pilot.Vehicles){
-                foreach(var rc in race.AuhtorizedCategories){
-                    foreach(var vc in vehicle.Categories){
-                        if (vc == rc){
-=======
             foreach (Vehicle vehicle in pilot.Vehicles)
             {
                 foreach (var rc in race.AuhtorizedCategories)
@@ -104,19 +87,13 @@ namespace App.Controllers
                     {
                         if (vc == rc)
                         {
->>>>>>> origin
                             vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, false));
                             goto NextVehicle;
                         }
                     }
                 }
-<<<<<<< HEAD
-                vehicleList.Add(new SelectListItem (vehicle.Brand +" "+ vehicle.Model, vehicle.Id.ToString(), false, true ));
-                NextVehicle:
-=======
                 vehicleList.Add(new SelectListItem(vehicle.Brand + " " + vehicle.Model, vehicle.Id.ToString(), false, true));
             NextVehicle:
->>>>>>> origin
                 continue;
             }
             SignIn SignInModel = new()
