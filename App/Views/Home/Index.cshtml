@@ -19,7 +19,13 @@
         @foreach (var item in Model.RaceList) {
             <div class='carousel-item @( Model.RaceList.First().Id== item.Id? "active" :""  )'>
                 <img class="d-block w-100" src="@item.Image" alt ="@item.Id" width="500" height="400">
-                <div class="carousel-caption d-none d-md-block"><h1>@item.Name</h1></div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>@item.Name</h1>
+                     @if(Context.Session.GetString("_id") != null)
+                    {
+                        @Html.ActionLink("Sign In","Signin","Races",new { id=item.Id })
+                    }
+                </div>
                 
             </div>
         }

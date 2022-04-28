@@ -72,32 +72,44 @@ namespace App.Controllers
             }
             var race = _dbContext.Races.Include(x => x.AuhtorizedCategories).First(r => r.Id == id);
             Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).ThenInclude(x => x.Categories).First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
-            if (race.AgeRestriction > (DateTime.Now.Subtract(pilot.BirthDate).Days/365)){
-                return RedirectToAction("Index");
-            }
-            if (race.EventDate < DateTime.Now){
+            // if (race.AgeRestriction > (race.EventDate.Year - pilot.BirthDate.Year))
+            // {
+            //     Console.WriteLine("YOOOOOO");
+            //     return RedirectToAction("Index");
+            // }
+            if (race.EventDate < DateTime.Now)
+            {
+                Console.WriteLine("ici");
                 return RedirectToAction("Index");
             }
             int pilotsCount = 0;
-            try{
+            try
+            {
                 pilotsCount = race.Pilots.Count();
-            }catch{}
-            if (race.MaxParticipants == pilotsCount){
+            }
+            catch { }
+            if (race.MaxParticipants == pilotsCount)
+            {
+                Console.WriteLine("SALUTTTTTTTTTTTTTT");
                 return RedirectToAction("Index");
             }
             List<SelectListItem> vehicleList = new List<SelectListItem>();
-            foreach (Vehicle vehicle in pilot.Vehicles){
+            foreach (Vehicle vehicle in pilot.Vehicles)
+            {
                 //int vehicleCategories = _dbContext.Vehicles.Include(x => x.Categories).First(vi => vi.Id == vehicle.Id);
-                foreach(var rc in race.AuhtorizedCategories){
-                    foreach(var vc in vehicle.Categories){
-                        if (vc == rc){
+                foreach (var rc in race.AuhtorizedCategories)
+                {
+                    foreach (var vc in vehicle.Categories)
+                    {
+                        if (vc == rc)
+                        {
                             vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, false));
                             goto NextVehicle;
                         }
                     }
                 }
-                vehicleList.Add(new SelectListItem (vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, true ));
-                NextVehicle:
+                vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, true));
+            NextVehicle:
                 continue;
             }
             ViewBag.vehicleList = vehicleList;
@@ -107,11 +119,8 @@ namespace App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignInRace(List<SelectListItem> vehicleList)
+        public ActionResult SignInRace(Race race, int vehicleList)
         {
-            foreach(SelectListItem v in vehicleList){
-                Console.WriteLine(v + " !");
-            }
             return RedirectToAction("Index");
         }
 
@@ -163,27 +172,49 @@ namespace App.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 Console.WriteLine("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-                return RedirectToAction("CreateRace");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
+                return View("CreateRace");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-                return RedirectToAction("CreateRace");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
+                return View("CreateRace");
             }
         }
 
         // GET: Races/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
+            return View("Edit");
         }
 
         // POST: Races/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CreateRaceRequest raceRequest)
         {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Race race = _dbContext.races.FirstOrDefault(r => r.Id == id);
             try
             {
                 // TODO: Add update logic here
