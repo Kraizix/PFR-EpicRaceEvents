@@ -1,0 +1,28 @@
+@model App.ViewModels.DelVehicle
+
+@{
+    ViewData["Title"] = "DelVehicle";
+}
+
+<h1>DelVehicle</h1>
+
+<h4>DelVehicle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DeleteVehicle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <select class="form-control" asp-for="VehicleId" asp-items="@(new SelectList(Model.VehiclesList, "Value", "Text"))">  
+                    <option value="999999">--Select--</option>  
+            </select>  
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -178,13 +178,13 @@ namespace App.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-                return RedirectToAction("CreateRace");
+                return View("CreateRace");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
-                return RedirectToAction("CreateRace");
+                return View("CreateRace");
             }
         }
 
@@ -207,7 +207,7 @@ namespace App.Controllers
         // POST: Races/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, CreateRaceRequest raceRequest)
+        public ActionResult Edit(int id, EditRaceRequest raceRequest, List<int> Cats)
         {
             if (HttpContext.Session.GetString("_id") == null)
             {
@@ -218,16 +218,64 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            Race race = _dbContext.races.FirstOrDefault(r => r.Id == id);
+            Race race = _dbContext.Races.Include(x => x.AuhtorizedCategories).FirstOrDefault(r => r.Id == id);
+            List<Category> categories = new List<Category>(Cats.Count);
+            foreach (int cid in Cats)
+            {
+                Console.WriteLine("\n" + cid);
+                categories.Add(_dbContext.Categories.FirstOrDefault(c => c.Id == cid));
+            }
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    if (raceRequest.RaceName != null)
+                    {
+                        race.Name = raceRequest.RaceName;
+                    }
+                    if (raceRequest.RaceDate != null)
+                    {
+                        race.EventDate = raceRequest.RaceDate ?? race.EventDate;
+                    }
+                    if (raceRequest.Latitude != null)
+                    {
+                        race.Latitude = raceRequest.Latitude ?? race.Latitude;
+                    }
+                    if (raceRequest.Longitude != null)
+                    {
+                        race.Longitude = raceRequest.Longitude ?? race.Longitude;
+                    }
+                    if (raceRequest.MaxParticipants != null)
+                    {
+                        race.MaxParticipants = raceRequest.MaxParticipants ?? race.MaxParticipants;
+                    }
+                    if (raceRequest.AgeRestriction != null)
+                    {
+                        race.AgeRestriction = raceRequest.AgeRestriction ?? race.AgeRestriction;
+                    }
+                    if (categories.Count != 0)
+                    {
 
-                return RedirectToAction(nameof(Index));
+                        foreach (var category in race.AuhtorizedCategories)
+                        {
+                            _dbContext.Races.FirstOrDefault(r => r.Id == id).AuhtorizedCategories.Remove(category);
+                        }
+                        _dbContext.SaveChanges();
+                        race.AuhtorizedCategories = categories;
+                    }
+                    _dbContext.Races.Update(race);
+                    _dbContext.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
+                return View("Edit");
             }
             catch
             {
-                return View();
+                Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
+                return View("Edit");
             }
         }
 
