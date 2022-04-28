@@ -130,6 +130,7 @@ namespace App.Controllers
             race.Categories = new List<Category>(Cats.Count);
             foreach (int id in Cats)
             {
+                Console.WriteLine("\n" + id);
                 race.Categories.Add(_dbContext.Categories.FirstOrDefault(c => c.Id == id));
             }
             ModelState.Clear();
@@ -137,12 +138,10 @@ namespace App.Controllers
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach (var error in errors)
             {
-                Console.WriteLine("#####################################################################################");
-                Console.WriteLine(error);
+                Console.WriteLine(error.ErrorMessage);
             }
             try
             {
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if (ModelState.IsValid)
                 {
                     Race newRace = new()
@@ -157,18 +156,19 @@ namespace App.Controllers
                         Image = race.Image ?? "https://www.driving.co.uk/wp-content/uploads/sites/5/2019/02/2019-Daytona-500-NASCAR-Massive-Crash-01.jpg",
                         AuhtorizedCategories = race.Categories,
                     };
+                    Console.WriteLine(newRace);
                     _dbContext.Races.Add(newRace);
                     _dbContext.SaveChanges();
 
                     return RedirectToAction(nameof(Index));
                 }
-                Console.WriteLine("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
                 return RedirectToAction("CreateRace");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+                ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
                 return RedirectToAction("CreateRace");
             }
         }
