@@ -218,7 +218,7 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            Race race = _dbContext.races.FirstOrDefault(r => r.Id == id);
+            Race race = _dbContext.Races.FirstOrDefault(r => r.Id == id);
             try
             {
                 // TODO: Add update logic here
