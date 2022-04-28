@@ -16328,6 +16328,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\AddVehicle.cshtml",
+      "TargetPath": "Views\\Drivers\\AddVehicle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Register\\ShowVehicle.cshtml",
       "TargetPath": "Views\\Register\\ShowVehicle.cshtml",
       "FileKind": "mvc"
@@ -16340,6 +16345,11 @@
     {
       "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\cours\\frameworkWebC#B2\\PFR-EpicRaceEvents\\App\\Views\\Drivers\\DelVehicle.cshtml",
+      "TargetPath": "Views\\Drivers\\DelVehicle.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -7,6 +7,8 @@ using App.Models;
 using App.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Controllers
 {
@@ -125,6 +127,101 @@ namespace App.Controllers
                 Console.WriteLine("ici2");
                 return View("Edit");
             }
+        }
+        public ActionResult DeleteVehicle(int id)
+        {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Pilot user = _dbContext.Pilots.Include(p => p.Vehicles).FirstOrDefault(p => p.Id == id);
+            if (user.Vehicles.Count == 1)
+            {
+                ViewBag.Error = "User only have 1 vehicle  you can't delete it";
+                return RedirectToAction("Index");
+            }
+            DelVehicle del = new DelVehicle(user.Vehicles);
+            return View("DelVehicle", del);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteVehicle(int id, DelVehicle vhc)
+        {
+            Console.WriteLine(vhc.VehicleId);
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Pilot user = _dbContext.Pilots.Include(p => p.Vehicles).FirstOrDefault(p => p.Id == id);
+            if (vhc.VehicleId == 999999)
+            {
+                DelVehicle del = new DelVehicle(user.Vehicles);
+                return View("DelVehicle", del);
+            }
+            if (user.Vehicles.Count == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            user.Vehicles.Remove(user.Vehicles.First(p => p.Id == vhc.VehicleId));
+            _dbContext.Pilots.Update(user);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddVehicle(int id)
+        {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            AddVehicle del = new AddVehicle(_dbContext.Vehicles.ToList());
+            return View("AddVehicle", del);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddVehicle(int id, AddVehicle vhc)
+        {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            if (vhc.VehicleId == 999999)
+            {
+                AddVehicle del = new AddVehicle(_dbContext.Vehicles.ToList());
+                return View("AddVehicle", del);
+            }
+            Pilot user = _dbContext.Pilots.Include(p => p.Vehicles).FirstOrDefault(p => p.Id == id);
+            var temp = user.Vehicles.FirstOrDefault(v => v.Id == vhc.VehicleId);
+            if (temp != null)
+            {
+                return RedirectToAction("Index");
+            }
+            user.Vehicles.Add(_dbContext.Vehicles.First(p => p.Id == vhc.VehicleId));
+            _dbContext.Pilots.Update(user);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
