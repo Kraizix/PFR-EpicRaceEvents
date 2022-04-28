@@ -37,7 +37,8 @@ namespace App.Controllers
         // GET: Races/Details/5
         public ActionResult Details(int id)
         {
-            var race = _dbContext.Races.Include(x => x.Pilots).First(r => r.Id == id);
+            var race = _dbContext.Races.Include(x => x.Pilots).Include(x => x.Result).ThenInclude(x => x.ResultItems).First(r => r.Id == id);
+            Console.WriteLine(race);
             return View("RaceDetails", race);
         }
 
@@ -50,16 +51,17 @@ namespace App.Controllers
             }
             var race = _dbContext.Races.Include(x => x.AuhtorizedCategories).Include(x => x.Pilots).First(r => r.Id == id);
             Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).ThenInclude(x => x.Categories).First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
-            if (race.AgeRestriction > (race.EventDate.Year - pilot.BirthDate.Year))
-            {
-                return RedirectToAction("Index");
-            }
+            // if (race.AgeRestriction > (race.EventDate.Year - pilot.BirthDate.Year))
+            // {
+            //     Console.WriteLine("YOOOOOO");
+            //     return RedirectToAction("Index");
+            // }
             if (race.EventDate < DateTime.Now)
             {
+                Console.WriteLine("ici");
                 return RedirectToAction("Index");
             }
             int pilotsCount = 0;
-<<<<<<< HEAD
             try
             {
                 pilotsCount = race.Pilots.Count;
@@ -73,21 +75,10 @@ namespace App.Controllers
             {
                 if (p.Id == pilot.Id)
                 {
-=======
-            try{
-                pilotsCount = race.Pilots.Count;
-            }catch{}
-            if (race.MaxParticipants == pilotsCount){
-                return RedirectToAction("Index");
-            }
-            foreach(Pilot p in race.Pilots){
-                if(p.Id == pilot.Id){
->>>>>>> f6aaaad2cb5c43be0c2f7e5ca8df751f1c6de423
                     return RedirectToAction("Index");
                 }
             }
             List<SelectListItem> vehicleList = new();
-<<<<<<< HEAD
             foreach (Vehicle vehicle in pilot.Vehicles)
             {
                 foreach (var rc in race.AuhtorizedCategories)
@@ -96,25 +87,13 @@ namespace App.Controllers
                     {
                         if (vc == rc)
                         {
-=======
-            vehicleList.Insert(0, new SelectListItem ("Please Select a vehicle...", "none" ));
-            foreach (Vehicle vehicle in pilot.Vehicles){
-                foreach(var rc in race.AuhtorizedCategories){
-                    foreach(var vc in vehicle.Categories){
-                        if (vc == rc){
->>>>>>> f6aaaad2cb5c43be0c2f7e5ca8df751f1c6de423
                             vehicleList.Add(new SelectListItem(vehicle.Brand + vehicle.Model, vehicle.Id.ToString(), false, false));
                             goto NextVehicle;
                         }
                     }
                 }
-<<<<<<< HEAD
                 vehicleList.Add(new SelectListItem(vehicle.Brand + " " + vehicle.Model, vehicle.Id.ToString(), false, true));
             NextVehicle:
-=======
-                vehicleList.Add(new SelectListItem (vehicle.Brand +" "+ vehicle.Model, vehicle.Id.ToString(), false, true ));
-                NextVehicle:
->>>>>>> f6aaaad2cb5c43be0c2f7e5ca8df751f1c6de423
                 continue;
             }
             SignIn SignInModel = new()
@@ -127,23 +106,23 @@ namespace App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignInRace(Race race, string vehicleList)
+        public ActionResult SignInRace(Race race, int vehicleList)
         {
-            if (vehicleList == "none"){
-                return RedirectToAction(nameof(Index));
-            }
             Console.WriteLine(vehicleList);
             Pilot pilot = _dbContext.Pilots.First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
+            Console.WriteLine("test1 : " + race.Pilots.Count());
             foreach (Pilot p in race.Pilots)
             {
+                Console.WriteLine("test2");
                 if (p.Id == pilot.Id)
                 {
+                    Console.WriteLine("test3");
                     return RedirectToAction("Index");
                 }
             }
             race.Pilots.Add(pilot);
-            //_dbContext.Races.Update(race);
-            //_dbContext.SaveChanges();
+            _dbContext.Races.Update(race);
+            _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -152,7 +131,12 @@ namespace App.Controllers
         {
             if (HttpContext.Session.GetString("_id") == null)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.Cats = new MultiSelectList(_dbContext.Categories, "Id", "Name");
             return View("CreateRace");
@@ -163,6 +147,15 @@ namespace App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateRaceRequest race, List<uint> Cats)
         {
+            if (HttpContext.Session.GetString("_id") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             race.Categories = new List<Category>(Cats.Count);
             foreach (int id in Cats)
             {
@@ -276,7 +269,6 @@ namespace App.Controllers
                     }
                     if (categories.Count != 0)
                     {
-
                         foreach (var category in race.AuhtorizedCategories)
                         {
                             _dbContext.Races.FirstOrDefault(r => r.Id == id).AuhtorizedCategories.Remove(category);
@@ -299,28 +291,41 @@ namespace App.Controllers
                 return View("Edit");
             }
         }
-
-        // GET: Races/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult GenerateResults(int id)
         {
-            return View();
-        }
-
-        // POST: Races/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            if (HttpContext.Session.GetString("_id") == null)
             {
-                // TODO: Add delete logic here
+                return RedirectToAction("Index", "Login");
+            }
+            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (pilot.Admin != 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
+            RaceResult result = new RaceResult();
+            result.RaceId = id;
+            result.Race = _dbContext.Races.Include(r => r.Pilots).Include(r => r.Result).FirstOrDefault(r => r.Id == id);
+            result.ResultItems = new List<ResultItem>();
+            List<Pilot> pilots = result.Race.Pilots.OrderBy(x => Guid.NewGuid()).ToList();
+            if (result.Race.Result != null)
+            {
+                Console.WriteLine("Salut");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            if (pilots.Count < 2)
             {
-                return View();
+                return RedirectToAction(nameof(Index));
             }
+            int i = 1;
+            foreach (Pilot p in pilots)
+            {
+                result.ResultItems.Add(new ResultItem { DriverName = p.FirstName + " " + p.LastName, Rank = i });
+                i++;
+            }
+            _dbContext.RaceResults.Add(result);
+            _dbContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
