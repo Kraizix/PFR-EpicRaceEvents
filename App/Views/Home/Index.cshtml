@@ -1,47 +1,83 @@
-﻿@model App.ViewModels.RaceListViewModel
+﻿@model App.ViewModels.HomeViewModel
 @using Microsoft.AspNetCore.Http;
 @{
     ViewData["Title"] = "Home Page";
 }
-
-<div>
-    <p></p>
-    <h1>Next Race :</h2>
-    <p id="countdown"></p>
-</div>
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        @for(var i = 0; i < Model.RaceList.Count(); i++){
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" @(i== 0 ? "class=active aria-current=true": "") aria-label="Slide @i"></button>
-        }
+@if(Model.RaceList.Count() > 0 ){
+<div class="bdy">
+    <div>
+        <p></p>
+        <h1>Next Race :</h1>
+        <p id="countdown"></p>
     </div>
-    <div class="carousel-inner">
-        @foreach (var item in Model.RaceList) {
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @for(var i = 0; i < Model.RaceList.Count(); i++){
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" @(i== 0 ? "class=active aria-current=true": "") aria-label="Slide @i"></button>
+            }
+        </div>
+        <div class="carousel-inner">
+            @foreach (var item in Model.RaceList) {
             <div class='carousel-item @( Model.RaceList.First().Id== item.Id? "active" :""  )'>
                 <img class="d-block w-100" src="@item.Image" alt ="@item.Id" width="500" height="400">
                 <div class="carousel-caption d-none d-md-block">
                     <h1>@item.Name</h1>
-                     @if(Context.Session.GetString("_id") != null)
+                    @if(Context.Session.GetString("_id") != null)
                     {
                         @Html.ActionLink("Sign In","Signin","Races",new { id=item.Id })
                     }
                 </div>
-                
             </div>
-        }
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+        </button>
     </div>
+</div>
+}
+else {
+    <h2>No Races Available</h2>
+}
 <div class="text-center">
     <h1 class="display-4">Welcome @Model.HeaderTitle</h1>
 </div>
+
+@if(Model.Result != null){
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>DriverName</h4>
+            </th>
+            <th>
+                <h4>Rank</h4>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Result.ResultItems)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
+
+@if(Model.RaceList.Count() > 0 ){
 <script>
     var myCarousel = document.querySelector('#myCarousel')
     var carousel = new bootstrap.Carousel(myCarousel)
@@ -62,3 +98,4 @@
     }
     }, 1000);
 </script>
+}

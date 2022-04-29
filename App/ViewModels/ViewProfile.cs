@@ -1,3 +1,5 @@
+using App.Models;
+
 namespace App.ViewModels
 {
     public class ViewProfile
@@ -7,5 +9,7 @@ namespace App.ViewModels
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Mail { get; set; }
+        public ICollection<Race> Races { get; set; }
+        public ICollection<Vehicle> Vehicles { get; set; }
     }
 }

@@ -140,6 +140,10 @@ namespace App.Controllers
                 return RedirectToAction("Index", "Home");
             }
             Pilot user = _dbContext.Pilots.Include(p => p.Vehicles).FirstOrDefault(p => p.Id == id);
+            if (user.Admin == 1)
+            {
+                return RedirectToAction("Index");
+            }
             if (user.Vehicles.Count == 1)
             {
                 ViewBag.Error = "User only have 1 vehicle  you can't delete it";
@@ -164,6 +168,10 @@ namespace App.Controllers
                 return RedirectToAction("Index", "Home");
             }
             Pilot user = _dbContext.Pilots.Include(p => p.Vehicles).FirstOrDefault(p => p.Id == id);
+            if (user.Admin == 1)
+            {
+                return RedirectToAction("Index");
+            }
             if (vhc.VehicleId == 999999)
             {
                 DelVehicle del = new DelVehicle(user.Vehicles);

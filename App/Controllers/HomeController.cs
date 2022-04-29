@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using App.Models;
 using App.Data;
 using App.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Controllers;
 
@@ -21,20 +22,13 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         string user = HttpContext.Session.GetString("_name") ?? "";
-        // Get future Races from and ordered by date
-
-
-
-
-
-        // var races = _dbContext.Races.ToList();
-        // races.Sort((x, y) => x.EventDate.CompareTo(y.EventDate));
         var races = _dbContext.Races.OrderBy(x => x.EventDate).Where(y => y.EventDate > DateTime.Now).ToList();
-        var raceListViewModel = new RaceListViewModel(
+        var homeViewModel = new HomeViewModel(
             races.Take(3),
-            user
+            user,
+            _dbContext.RaceResults.Include(x => x.ResultItems).OrderByDescending(x => x.Id).FirstOrDefault()
         );
-        return View(raceListViewModel);
+        return View(homeViewModel);
     }
 
     public IActionResult Privacy()

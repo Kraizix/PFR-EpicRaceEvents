@@ -5978,11 +5978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
+      "projectUniqueName": "c:\\Users\\kevin\\Downloads\\PFR-EpicRaceEvents\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\Test\\Test.csproj",
+      "projectPath": "c:\\Users\\kevin\\Downloads\\PFR-EpicRaceEvents\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\kevin\\Documents\\Cours-b2\\PFR-EpicRaceEvents\\Test\\obj\\",
+      "outputPath": "c:\\Users\\kevin\\Downloads\\PFR-EpicRaceEvents\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config"

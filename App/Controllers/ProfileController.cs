@@ -7,6 +7,7 @@ using App.Models;
 using App.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Controllers
 {
@@ -24,13 +25,15 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            Pilot pilot = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).Include(x => x.Races).ThenInclude(x => x.Result).ThenInclude(x => x.ResultItems).FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
             ViewProfile model = new()
             {
                 FirstName = pilot.FirstName,
                 LastName = pilot.LastName,
                 BirthDate = pilot.BirthDate,
                 Mail = pilot.Mail,
+                Races = pilot.Races,
+                Vehicles = pilot.Vehicles
             };
             return View("Index", model);
         }

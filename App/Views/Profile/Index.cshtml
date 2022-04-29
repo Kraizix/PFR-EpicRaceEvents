@@ -34,6 +34,69 @@
             @Html.DisplayFor(model => model.Mail)
         </dd>
     </dl>
+    <h4>Cars :</h4>
+    @foreach(var item in Model.Vehicles){
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => item.Brand)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => item.Brand)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => item.Model)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => item.Model)
+            </dd>
+        </dl>
+    }
+    @if(Model.Races != null){
+    <h4> Races :</h4>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Race Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Start Hour
+            </th>
+            <th>
+                Remaining Places
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model.Races) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @item.EventDate.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartHour)
+            </td>
+            <td>
+                <p>@(item.MaxParticipants - (item.Pilots != null ? item.Pilots.Count : 0))</p>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    }
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |

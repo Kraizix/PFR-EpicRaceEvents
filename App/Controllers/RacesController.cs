@@ -49,6 +49,11 @@ namespace App.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
+            Pilot user = _dbContext.Pilots.FirstOrDefault(p => p.Id == HttpContext.Session.GetInt32("_id"));
+            if (user.Admin == 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var race = _dbContext.Races.Include(x => x.AuhtorizedCategories).Include(x => x.Pilots).First(r => r.Id == id);
             Pilot pilot = _dbContext.Pilots.Include(x => x.Vehicles).ThenInclude(x => x.Categories).First(p => p.Id == (int)HttpContext.Session.GetInt32("_id"));
             // if (race.AgeRestriction > (race.EventDate.Year - pilot.BirthDate.Year))

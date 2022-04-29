@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-string connectionString = "server=localhost;user=root;password=root;database=app-db";
+string connectionString = "server=localhost;user=root;password=root;database=app_db";
 
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 
@@ -84,7 +84,7 @@ app.MapControllerRoute(
 using (var scope = app.Services.CreateScope())
 {
     scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.EnsureCreated();
-    scope.ServiceProvider.GetRequiredService<AppDbContext>().Seed();
+    //scope.ServiceProvider.GetRequiredService<AppDbContext>().Seed();
 }
 
 app.Run();
