@@ -456,5 +456,3 @@ $RECYCLE.BIN/
 ## database 
 database/
 db/
-
-docker-compose.yml
