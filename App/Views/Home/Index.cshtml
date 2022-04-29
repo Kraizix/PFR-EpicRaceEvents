@@ -50,6 +50,7 @@ else {
 </div>
 
 @if(Model.Result != null){
+@Html.ActionLink("Latest Results","Details","Races",new { id=Model.Result.RaceId })
 <table class="table">
     <thead>
         <tr>

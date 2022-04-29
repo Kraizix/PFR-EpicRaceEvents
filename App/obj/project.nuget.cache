@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ao3buGe+2tmhAFrgfW4HQbyvRIfjvhQPKhgGIS5yNS4OXqm4pEfPh4hj+z/iH/WexV0ufuX62FwSkdRaQQUMXA==",
+  "dgSpecHash": "5Y0l6mxaxG3Rj8YXA0NMefyv9IF5LVKqkeR2RgsdzKf/9cYbcadioRZ63D5KrO6GZierUYCoF3z5r3AbLsFrOA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\kevin\\Downloads\\PFR-EpicRaceEvents\\App\\App.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\Downloads\\PFR-EpicRaceEvents\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

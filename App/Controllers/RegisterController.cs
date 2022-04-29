@@ -15,7 +15,6 @@ namespace App.Controllers
 {
     public class RegisterController : Controller
     {
-        private static Random rnd = new Random();
         private readonly AppDbContext _dbContext;
         public RegisterController(AppDbContext dbContext)
         {
